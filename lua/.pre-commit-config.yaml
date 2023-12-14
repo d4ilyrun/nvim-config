@@ -1,0 +1,7 @@
+default_stages: [ commit, prepare-commit-msg ]
+
+repos:
+  - repo: "https://github.com/JohnnyMorganz/StyLua"
+    rev: "v0.17.1"
+    hooks:
+      - id: stylua-system
