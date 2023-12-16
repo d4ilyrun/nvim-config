@@ -8,7 +8,6 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
       'onsails/lspkind.nvim',
       'nvim-tree/nvim-web-devicons',
       'saadparwaiz1/cmp_luasnip',
@@ -118,7 +117,6 @@ return {
           { name = 'nvim_lsp' },
           { name = 'path' },
           { name = 'luasnip' },
-          { name = 'nvim_lsp_signature_help' },
           {
             name = 'buffer',
             max_item_count = 5
