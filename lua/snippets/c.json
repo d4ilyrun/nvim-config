@@ -311,16 +311,6 @@
         "body": ["errx(${1:EXIT_FAILURE}, \"${2:%s}\"$0);"],
         "description": "errx() snippet"
     },
-    "warn": {
-        "prefix": "warn",
-        "body": ["warn(\"${1:%s}\"$0);"],
-        "description": "warn() snippet"
-    },
-    "warnx": {
-        "prefix": "warnx",
-        "body": ["warnx(\"${1:%s}\"$0);"],
-        "description": "warnx() snippet"
-    },
     "Print a variable": {
         "prefix": "printv",
         "body": ["printf(\"$1 = %${2:d}\\n\", ${1:var}$3);"],
