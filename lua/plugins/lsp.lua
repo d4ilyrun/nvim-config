@@ -45,21 +45,28 @@ return {
 
   keys = {
     -- diagnostics
-    { '<C-Up>',   vim.diagnostic.goto_prev,    mode = "n", { noremap = true, silent = true } },
-    { '<C-Down>', vim.diagnostic.goto_next,    mode = "n", { noremap = true, silent = true } },
-    { '<C-,>',    vim.diagnostic.open_float,   mode = "n", { noremap = true, silent = true } },
+    { '<C-k>',    vim.diagnostic.goto_prev,                           mode = "n", { noremap = true, silent = true } },
+    { '<C-j>',    vim.diagnostic.goto_next,                           mode = "n", { noremap = true, silent = true } },
+    { '<C-Up>',   vim.diagnostic.goto_prev,                           mode = "n", { noremap = true, silent = true } },
+    { '<C-Down>', vim.diagnostic.goto_next,                           mode = "n", { noremap = true, silent = true } },
+    { '<C-,>',    vim.diagnostic.open_float,                          mode = "n", { noremap = true, silent = true } },
     -- goto
-    { 'gD',       vim.lsp.buf.declaration,     mode = "n", { noremap = true, silent = true } },
-    { 'gd',       vim.lsp.buf.definition,      mode = "n", { noremap = true, silent = true } },
-    { 'gi',       vim.lsp.buf.implementation,  mode = "n", { noremap = true, silent = true } },
-    { 'gt',       vim.lsp.buf.type_definition, mode = "n", { noremap = true, silent = true } },
-    { 'gr',       vim.lsp.buf.references,      mode = "n", { noremap = true, silent = true } },
+    { 'gD',       vim.lsp.buf.declaration,                            mode = "n", { noremap = true, silent = true } },
+    { 'gd',       vim.lsp.buf.definition,                             mode = "n", { noremap = true, silent = true } },
+    { 'gi',       vim.lsp.buf.implementation,                         mode = "n", { noremap = true, silent = true } },
+    { 'gt',       vim.lsp.buf.type_definition,                        mode = "n", { noremap = true, silent = true } },
+    { 'gr',       vim.lsp.buf.references,                             mode = "n", { noremap = true, silent = true } },
+    -- goto in new split
+    { 'gsD',      "<cmd>split | lua vim.lsp.buf.declaration()<cmd>",  mode = "n", { noremap = true, silent = true } },
+    { 'gsd',      "<cmd>split | lua vim.lsp.buf.definition()<cr>",    mode = "n", { noremap = true, silent = true } },
+    { 'gvD',      "<cmd>vsplit | lua vim.lsp.buf.declaration()<cmd>", mode = "n", { noremap = true, silent = true } },
+    { 'gvd',      "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>",   mode = "n", { noremap = true, silent = true } },
     -- get information
-    { 'K',        vim.lsp.buf.hover,           mode = "n", { noremap = true, silent = true } },
-    { '<C-k>',    vim.lsp.buf.signature_help,  mode = "n", { noremap = true, silent = true } },
+    { 'K',        vim.lsp.buf.hover,                                  mode = "n", { noremap = true, silent = true } },
+    { '<a-k>',    vim.lsp.buf.signature_help,                         mode = "n", { noremap = true, silent = true } },
     -- actions
-    { '<a-CR>',   vim.lsp.buf.code_action,     mode = "n", { noremap = true, silent = true } },
-    { '<a-r>',    vim.lsp.buf.rename,          mode = "n", { noremap = true, silent = true } },
+    { '<a-CR>',   vim.lsp.buf.code_action,                            mode = "n", { noremap = true, silent = true } },
+    { '<a-r>',    vim.lsp.buf.rename,                                 mode = "n", { noremap = true, silent = true } },
     {
       '<space><space>',
       function()
