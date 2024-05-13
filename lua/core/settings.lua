@@ -45,3 +45,6 @@ set expandtab
 set hidden
 
 ]])
+
+vim.opt.splitright = true
+vim.opt.splitbelow = true
