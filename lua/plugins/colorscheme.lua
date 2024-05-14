@@ -65,6 +65,7 @@ return {
         notify = true,
         telescope = true,
         which_key = true,
+        diffview = true,
       },
 
       highlight_overrides = {
