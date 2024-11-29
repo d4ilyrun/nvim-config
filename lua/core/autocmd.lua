@@ -12,3 +12,12 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
     vim.bo.expandtab  = false
   end
 })
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+    pattern = "*.pdf",
+    callback = function()
+        local filepath = vim.fn.expand("<afile>")
+        vim.fn.jobstart({"xdg-open", filepath}, {detach = true})
+        vim.cmd("bw!")
+    end,
+})
