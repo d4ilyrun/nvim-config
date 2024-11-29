@@ -2,11 +2,15 @@ return {
   -- nvim-tree
   {
     'nvim-tree/nvim-tree.lua',
-    cmd = 'NvimTreeOpen',
     config = function(_, opts)
       require('nvim-tree').setup(opts)
     end,
-    keys = { { '<C-e>', '<cmd>NvimTreeOpen<cr>', desc = 'Open file explorer' } }
+    opts = {
+      actions = {
+        open_file = { quit_on_open = true }
+      }
+    },
+    keys = { { '<C-e>', '<cmd>NvimTreeToggle<cr>', desc = 'Open file explorer' } }
   },
 
   -- notify

@@ -51,6 +51,7 @@ return {
     },
 
     keys = {
+      { "<leader>ts", group = "Sort", nowait = true },
       { '<leader>tsd', '<cmd>BufferLineSortByDirectory<cr>', desc = 'By Directory' },
       { '<leader>tse', '<cmd>BufferLineSortByExtension<cr>', desc = 'By Extension' },
       {

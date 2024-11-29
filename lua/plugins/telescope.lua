@@ -68,6 +68,7 @@ return {
     end,
 
     keys = {
+      { "<leader>f", group = "Telescope", nowait = true },
       { '<leader>ff',   '<cmd>Telescope find_files<cr>',                 desc = 'Find File' },
       { '<leader>fo',   '<cmd>Telescope oldfiles<cr>',                   desc = 'Open Recent File' },
       { '<leader>fp',   '<cmd>Telescope projects<cr>',                   desc = 'Projects' },
