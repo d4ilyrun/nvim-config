@@ -75,13 +75,14 @@ return {
       { '<leader>fb',   '<cmd>Telescope buffers<cr>',                    desc = 'Switch Buffer' },
       { '<leader>fg',   '<cmd>Telescope live_grep<cr>',                  desc = 'Find Text in Workspace' },
       { '<leader>fr',   '<cmd>Telescope resume<cr>',                     desc = 'Resume Last Search' },
-      { '<leader>gb',   '<cmd>Telescope git_branches<cr>',               desc = 'Branches' },
-      { '<leader>gs',   '<cmd>Telescope git_status<cr>',                 desc = 'Status' },
       { '<leader>cs',   '<cmd>Telescope colorscheme<cr>',                desc = 'Colorscheme' },
       { '<leader>tl',   '<cmd>Telescope buffers<cr>',                    desc = 'List Active Buffers' },
       { '<leader><F1>', '<cmd>Telescope man_pages sections={"ALL"}<cr>', desc = 'Man Pages' },
       { '<leader>?',    '<cmd>Telescope help_tags<cr>',                  desc = 'Vim docs' },
-      { '<leader>ls',    '<cmd>Telescope lsp_document_symbols<cr>',       desc = 'Document Symbols' },
+      { '<leader>ls',   '<cmd>Telescope lsp_document_symbols<cr>',       desc = 'Document Symbols' },
+      -- git
+      { '<leader>gl',   '<cmd>Telescope git_branches<cr>',               desc = 'Branches' },
+      { '<leader>gs',   '<cmd>Telescope git_status<cr>',                 desc = 'Status' },
     }
   },
 }

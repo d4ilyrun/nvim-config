@@ -66,6 +66,8 @@ return {
         telescope = true,
         which_key = true,
         diffview = true,
+        gitsigns = true,
+        snacks = { enabled = true },
       },
 
       highlight_overrides = {

@@ -1,3 +1,19 @@
+local prev = { new_name = "", old_name = "" } -- Prevents duplicate events
+
+-- Les LSP client know that a file has been renamed through NvimTree
+vim.api.nvim_create_autocmd("User", {
+  pattern = "NvimTreeSetup",
+  callback = function()
+    local events = require("nvim-tree.api").events
+    events.subscribe(events.Event.NodeRenamed, function(data)
+      if prev.new_name ~= data.new_name or prev.old_name ~= data.old_name then
+        data = data
+        Snacks.rename.on_rename_file(data.old_name, data.new_name)
+      end
+    end)
+  end,
+})
+
 return {
   -- nvim-tree
   {
@@ -12,60 +28,39 @@ return {
     },
     keys = { { '<C-e>', '<cmd>NvimTreeToggle<cr>', desc = 'Open file explorer' } }
   },
-
-  -- notify
+  -- QoL plugins
   {
-    'MunifTanjim/nui.nvim',
-    event = 'VeryLazy',
-    keys = { { '<leader>D', function() require('notify').dismiss() end, desc = "Dismiss notification" } }
-  },
-
-  -- noice
-  {
-    'folke/noice.nvim',
-    event = 'VeryLazy',
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
-    },
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
     opts = {
-      lsp = {
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-        override = {
-          ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-          ['vim.lsp.util.stylize_markdown'] = true,
-          ['cmp.entry.get_documentation'] = true,
-        },
+      bigfile = { enabled = true },
+      bufdelete = { enabled = true },
+      image = { enabled = true },
+      notifier = { enabled = true },
+      notify = { enabled = true },
+      input = { enabled = true },
+      quickfile = { enabled = true },
+      dashboard = {
+        enabled = true,
+        example = "files",
       },
-      cmdline = {
-        view = 'cmdline',
+      zen = {
+        enabled = true,
+        toggles = { dim = false },
       },
-      presets = {
-        bottom_search = true,         -- use a classic bottom cmdline for search
-        command_palette = true,       -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false,           -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false,       -- add a border to hover docs and signature help
-      },
-      routes = {
-        {
-          filter = {
-            event = 'msg_show',
-            kind = '',
-            find = 'written',
-          },
-          opts = { skip = true },
-        },
+
+      styles = {
+        zen = {
+          backdrop = { transparent = true, blend = 10 },
+        }
       },
     },
-  },
-
-  -- Bdelete: delete buffer
-  {
-    'nvim-tree/nvim-tree.lua',
-    event = 'VeryLazy',
     keys = {
-      { '<leader>td', '<cmd>bdelete<cr>', desc = 'Delete Current Buffer' }
-    }
+      { '<leader>td',  function() Snacks.bufdelete.delete() end, desc = 'Delete current buffer' },
+      { '<leader>tD',  function() Snacks.bufdelete.all() end,    desc = 'Delete all buffers' },
+      { '<leader>tO',  function() Snacks.bufdelete.other() end,  desc = 'Delete all other buffers' },
+      { '<leader>z', function() Snacks.zen.zen() end,          desc = 'Activate zen mode' },
+    },
   },
 }
